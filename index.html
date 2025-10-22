@@ -7,14 +7,15 @@
     <link rel="shortcut icon" href="contenido/logos/favicon.png" type="image/x-icon">
     <title>DaverFrut|Verdureria La Cima</title>
     <!-- link de iconos -->
+    <!-- link de iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <!-- estilos de css  -->
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-
-    <header class="reduce-header">
+    <!-- Menu -->
+    <header class="reduce-header" id="header">
         <article class="contenido-nav">
             <div class="header-container">
                 <div class="logo">
@@ -23,10 +24,11 @@
 
                 <nav class="nav-menu" id="nav-menu">
                     <ul>
-                        <li><a href="index.html">Inicio</a></li>
-                        <li><a href="Sobrenoso.html">Sobre Nosotros</a></li>
-                        <li><a href="#">Productos</a></li>
-                        <li><a href="#">Contáctame</a></li>
+                        <li><a href="index.html" class="nav-link">Inicio</a></li>
+                        <li><a href="#sobrenoso" class="nav-link">Sobre Nosotros</a></li>
+                        <li><a href="#productos" class="nav-link">Productos</a></li>
+                        <li><a href="#creemos" class="nav-link">Valores</a></li>
+                        <li><a href="#contacto" class="nav-link">Contáctame</a></li>
                     </ul>
                 </nav>
 
@@ -38,7 +40,7 @@
     </header>
 
     <!-- Banner -->
-    <section class="hero">
+    <section class="hero" id="inicio">
         <article class="contenido-hero">
             <div class="hero-text">
                 <h1 class="typing-text h1">Orgullo <span class="h1Span">cimeño</span> en cada producto: 100% orgánico y
@@ -52,7 +54,7 @@
     </section>
 
     <!-- Sobre Nosotros -->
-    <section class="sobre-nosotros">
+    <section class="sobre-nosotros" id="sobrenoso">
         <article class="contenido-hero">
             <div class="contenido-nosotros">
                 <h2 class="h2">¿Quienes Somos?</h2>
@@ -62,7 +64,7 @@
                     llega a tu mesa con autenticidad. Creemos en el poder de lo natural, en el sabor que conecta y en la
                     experiencia que emociona. Nuestra misión es compartir contigo lo mejor del campo, con una
                     presentación premium y una historia que se siente en cada bocado.</p>
-                <a href="#" class="boton-banner">Conoce más </a>
+                <a href="Sobrenoso.html" class="boton-banner">Conoce más </a>
             </div>
             <img class="imagenNosotros" src="contenido/fotos/sobre-nosotros.jpg" alt="persona en cultivando">
         </article>
@@ -70,28 +72,28 @@
 
 
     <!-- Productos -->
-    <section class="productos">
+    <section class="productos" id="productos">
         <article class="contenido-productos">
             <h2 class="h2">Nuestros Productos</h2>
             <div class="productosCards">
                 <div class="card">
                     <img src="contenido/fotos/fresas.jpg" alt="">
                     <div class="overlay">
-                        <h3 class="textoProductos">Fresas</h3>
+                        <h3 class="textoProductos">Frutas</h3>
                         <a href="#" class="botonProductos">Ver más</a>
                     </div>
                 </div>
                 <div class="card">
                     <img src="contenido/fotos/lechugas.jpeg" alt="">
                     <div class="overlay">
-                        <h3 class="textoProductos">Lechugas</h3>
+                        <h3 class="textoProductos">Vegetales</h3>
                         <a href="#" class="botonProductos">Ver más</a>
                     </div>
                 </div>
                 <div class="card">
                     <img src="contenido/fotos/queso.webp" alt="">
                     <div class="overlay">
-                        <h3 class="textoProductos">Queso</h3>
+                        <h3 class="textoProductos">Lacteos</h3>
                         <a href="#" class="botonProductos">Ver más</a>
                     </div>
                 </div>
@@ -101,8 +103,149 @@
 
 
 
+    <!-- seccion de en que creemos -->
+    <section class="creemos" id="creemos">
+        <article class="contenido-creemos">
+            <h2 class="titulo-creemos">
+                El sabor auténtico, la frescura natural y el orgullo de nuestras raíces.
+            </h2>
+            <p class="parrafo-creemos">
+                En DaverFrut.CR creemos en el poder de lo natural.
+                Somos una verdurería que conecta el campo con tu mesa,
+                ofreciendo productos frescos, locales y llenos de vida.
+                Nos mueve el orgullo costarricense, la calidad artesanal
+                y el deseo de cultivar experiencias saludables y auténticas
+                todos los días.
+            </p>
+
+            <div class="cards-creemos">
+                <div class="card-creemos-contenido">
+                    <div class="icono-creemos">
+                        <img src="contenido/logos/iconos-creemos/planta.png" alt="Icono natural">
+                    </div>
+                    <h3 class="titulo-creemos-card">
+                        Cuidamos la Tierra
+                    </h3>
+                    <p class="texto-creemos-card">
+                        Priorizamos al productor local alineado a nuestros valores. Más de 40 pequeños y medianos
+                        productores involucrados.
+                    </p>
+                </div>
+
+                <div class="card-creemos-contenido">
+                    <div class="icono-creemos">
+                        <img src="contenido/logos/iconos-creemos/animal.png" alt="Icono natural">
+                    </div>
+                    <h3 class="titulo-creemos-card">
+                        Abonos Organicos
+                    </h3>
+                    <p class="texto-creemos-card">
+                        Priorizamos al productor local alineado a nuestros valores. Más de 40 pequeños y medianos
+                        productores involucrados.
+                    </p>
+                </div>
+
+                <div class="card-creemos-contenido">
+                    <div class="icono-creemos">
+                        <img src="contenido/logos/iconos-creemos/tienda-de-flores.png" alt="Icono natural">
+                    </div>
+                    <h3 class="titulo-creemos-card">
+                        Nuestra Tienda
+                    </h3>
+                    <p class="texto-creemos-card">
+                        Priorizamos al productor local alineado a nuestros valores. Más de 40 pequeños y medianos
+                        productores involucrados.
+                    </p>
+                </div>
+
+                <div class="card-creemos-contenido">
+                    <div class="icono-creemos">
+                        <img src="contenido/logos/iconos-creemos/agricultura.png" alt="Icono natural">
+                    </div>
+                    <h3 class="titulo-creemos-card">
+                        Agricultura Sostenible
+                    </h3>
+                    <p class="texto-creemos-card">
+                        Priorizamos al productor local alineado a nuestros valores. Más de 40 pequeños y medianos
+                        productores involucrados.
+                    </p>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <!-- contacto y mapa -->
+    <section class="contacto" id="contacto">
+        <article class="contenidoContacto">
+            <h2 class="tituloContacto h2">
+                Contacto
+            </h2>
+
+            <div class="contactMap">
+                <div class="formulario">
+                    <form method="POST" class="fondoFrom">
+                        <label for="name">Nombre</label>
+                        <input type="text" name="name" placeholder="Nombre" required>
+
+                        <label for="apellidos">Apellidos</label>
+                        <input type="text" name="apellidos" placeholder="Apellidos" required>
+
+                        <label for="celular">Numero de Celular</label>
+                        <input type="text" name="celular" placeholder="Numero Celular" required>
+
+                        <label for="correo">Correo</label>
+                        <input type="email" name="correo" placeholder="Correo Electronico" required>
+
+                        <label for="mensaje">Mensaje</label>
+                        <textarea name="mensaje" id="" placeholder="Escriba su mensaje" required></textarea>
+
+                        <button type="submit" value="Enviar" class="botonFrom">Enviar</button>
+                    </form>
+                </div>
+                <div class="map">
+                    <h3 class="h3">Donde Encontrarnos</h3>
+
+                    <a href="https://www.google.com/maps/place/Soda+del+campo/@9.6711111,-83.9044309,95m/data=!3m1!1e3!4m6!3m5!1s0x8fa1236333c093c7:0xec338df24974eb57!8m2!3d9.6712373!4d-83.9046188!16s%2Fg%2F11kqmxg8d5?entry=ttu&g_ep=EgoyMDI1MTAxNC4wIKXMDSoASAFQAw%3D%3D"
+                        class="opcionesEncontrarnos"><i class="fa-solid fa-location-dot iconoEncontrarnos"></i><span
+                            class="encontrarnos">La Cima de Dota</span></a>
+
+                    <a href="#" class="opcionesEncontrarnos"><i
+                            class="fa-brands fa-instagram iconoEncontrarnos"></i><span class="encontrarnos">La Cima de
+                            Dota</span></a>
+
+                    <a href="#" class="opcionesEncontrarnos"><i
+                            class="fa-brands fa-square-facebook iconoEncontrarnos"></i><span class="encontrarnos">La
+                            Cima de Dota</span></a>
+
+                    <a href="#" class="opcionesEncontrarnos"><i class="fa-brands fa-tiktok iconoEncontrarnos"></i><span
+                            class="encontrarnos">La Cima de Dota</span></a>
+
+                    <a href="#" class="opcionesEncontrarnos"><i
+                            class="fa-brands fa-whatsapp iconoEncontrarnos"></i><span class="encontrarnos">La Cima de
+                            Dota</span></a>
+                </div>
+            </div>
+        </article>
+    </section>
+
 
     <script src="js/script.js"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        emailjs.init("service_heilx56");
+
+        document.querySelector(".fondoFrom").addEventListener("submit", function (e) {
+            e.preventDefault();
+            emailjs.sendForm("service_heilx56", "TU_TEMPLATE_ID", this)
+                .then(() => {
+                    alert("Mensaje enviado correctamente");
+                    window.location.href = "index.html";
+                })
+
+                .catch(() => alert("Error al enviar el mensaje"));
+        });
+    </script>
+
 </body>
 
 </html>

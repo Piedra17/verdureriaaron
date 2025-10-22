@@ -39,6 +39,12 @@
     font-size: 5rem;
 }
 
+.h3 {
+    font-family: var(--titulos);
+    color: var(--blanco-texto);
+    font-size: 4rem;
+}
+
 .h1Span {
     font-family: var(--titulos);
     color: var(--rojo-suave);
@@ -74,15 +80,18 @@ MENU
 =====================================================================
 */
 
+body {
+    background: var(--color-fondo);
+    ;
+}
+
 .logo img {
     width: 200px;
     padding-top: 10px;
 }
 
-
-
 header {
-    background-color: rgba(0, 0, 0, 0);
+    background-color: rgba(255, 255, 255, 0.219);
     backdrop-filter: blur(6px);
     padding-top: 0px;
     padding-bottom: 0px;
@@ -92,16 +101,15 @@ header {
     z-index: 1000;
 }
 
+.contenido-nav {
+    width: 85%;
+    margin: 0 auto;
+}
+
 .header-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-
-.contenido-nav {
-    width: 85%;
-    margin: 0 auto;
 }
 
 .nav-menu ul {
@@ -112,7 +120,8 @@ header {
 .nav-menu ul li a {
     color: var(--blanco-texto);
     font-size: 22px;
-    font-weight: 700;
+    font-family: var(--parrafo);
+    font-weight: 500;
     transition: color 0.3s;
 }
 
@@ -127,6 +136,18 @@ header {
     transition: transform 0.3s ease;
 }
 
+.nav-menu a.active {
+    color: var(--verde-claro);
+    font-weight: bold;
+}
+
+
+.nav-dark {
+    background-color: rgba(0, 0, 0, 0.8);
+    /* cambia según tu diseño */
+    transition: background-color 0.3s ease;
+}
+
 /*
 ==================================================================
 BANNER
@@ -134,7 +155,7 @@ BANNER
 */
 .hero {
     position: relative;
-    background-image: url('/contenido/fotos/foto\ banner.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.6)), url('/contenido/fotos/foto\ banner.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -145,31 +166,12 @@ BANNER
     margin-top: 0px;
 }
 
-.hero::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1;
-    background-color: rgba(0, 0, 0, 0.4);
-}
-
-
-
-
 .contenido-hero {
-    position: relative;
-    z-index: 2;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
-    max-width: 1440px;
+    width: 85%;
     margin: 0 auto;
-    padding: 60px 40px;
 }
 
 .hero-text {
@@ -183,15 +185,6 @@ BANNER
     width: 70%;
     padding: 70px 0 100px;
 }
-
-
-span {
-    font-family: "Amatic SC", sans-serif;
-    font-weight: 800;
-    font-style: Bold;
-    color: var(--rojo-suave);
-}
-
 
 .boton-banner {
     padding: 20px 25px;
@@ -211,21 +204,12 @@ span {
     color: var(--blanco-texto);
 }
 
-.hero-image img {
-    width: 100%;
-    padding-top: 250px;
-    filter: brightness(0.8) contrast(1.0);
-}
-
-
 /*
 ==============================================
 sobre nosotros
 ==============================================
 */
-
 .sobre-nosotros {
-    background-color: var(--color-fondo);
     height: 70dvh;
     display: flex;
     justify-content: center;
@@ -236,7 +220,7 @@ sobre nosotros
 }
 
 .separacionNosotros {
-    padding: 20px 0 40px;
+    padding: 60px 0;
 }
 
 .imagenNosotros {
@@ -244,15 +228,12 @@ sobre nosotros
     border-radius: 30px;
 }
 
-
 /*
 ==============================================
 Productos
 ==============================================
 */
-
 .productos {
-    background-color: var(--color-fondo);
     width: 100%;
     height: 100dvb;
 }
@@ -260,9 +241,10 @@ Productos
 .contenido-productos {
     width: 100%;
 }
-.contenido-productos .h2{
+
+.contenido-productos .h2 {
     text-align: center;
-    padding: 40px 0;
+    padding: 60px 0;
 }
 
 .productosCards {
@@ -313,7 +295,7 @@ Productos
 }
 
 .textoProductos {
-    font-family: "Amatic SC", sans-serif;
+    font-family: var(--titulos);
     font-weight: 800;
     font-style: Bold;
     font-size: 90px;
@@ -326,7 +308,7 @@ Productos
     background-color: var(--color-rojo-intenso);
     color: var(--blanco-texto);
     border-radius: 8px;
-    font-size: 16px;
+    font-size: 1rem;
     text-decoration: none;
     transition: 0.3s ease-in-out;
 }
@@ -336,7 +318,6 @@ Productos
     color: var(--color-rojo-intenso);
 }
 
-/* Oscurecer imagen para que el texto resalte */
 .card::before {
     content: "";
     position: absolute;
@@ -347,6 +328,377 @@ Productos
     background-color: rgba(0, 0, 0, 0.3);
     z-index: 1;
 }
+
+
+
+/*
+==============================================
+Creemos
+==============================================
+*/
+
+.creemos {
+    max-width: 1920px;
+    width: 100%;
+    padding: 60px 0;
+}
+
+.contenido-creemos {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.titulo-creemos {
+    font-family: var(--titulos);
+    color: var(--blanco-texto);
+    font-size: 5rem;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.parrafo-creemos {
+    font-family: var(--parrafo);
+    padding: 100px;
+    font-size: 24px;
+    color: var(--blanco-texto);
+    text-align: center;
+}
+
+
+.cards-creemos {
+    background-color: #7b916b;
+    padding: 60px 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.card-creemos-contenido {
+    background-color: #fff;
+    border-radius: 20px;
+    max-width: 400px;
+    padding: 40px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card-creemos-contenido:hover {
+    transform: scale(1.03);
+}
+
+.icono-creemos img {
+    width: 60px;
+    margin-bottom: 20px;
+}
+
+.titulo-creemos-card {
+    font-family: var(--titulos);
+    font-size: 40px;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+.texto-creemos-card {
+    font-family: var(--parrafo);
+    font-size: 18px;
+    font-weight: 400;
+    color: #333;
+    line-height: 1.6;
+}
+
+
+
+/*
+==============================================
+Contacto
+==============================================
+*/
+
+.contacto {
+    background: linear-gradient(rgba(0, 0, 0, 0.6)), url(../contenido/fotos/form.jpg);
+    padding: 60px 0;
+    background-size: cover;
+    height: 100dvh;
+}
+
+.contenidoContacto {
+    width: 85%;
+    margin: 0 auto;
+}
+
+.contactMap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(10px);
+    width: 700px;
+    margin: 0 auto;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    padding: 50px;
+    border-radius: 15px;
+}
+
+input {
+    width: 600px;
+    height: 40px;
+    margin: 18px 0;
+    border: solid 1px #fff;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(6px);
+}
+
+textarea {
+    width: 600px;
+    min-height: 40px;
+    margin: 18px 0;
+    border: solid 1px #fff;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(6px);
+}
+
+textarea::placeholder {
+    color: #fff;
+}
+
+textarea:focus {
+    outline: none;
+    border: solid 1px #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease-in-out;
+}
+
+input:focus {
+    outline: none;
+    border: solid 1px #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease-in-out;
+}
+
+
+input::placeholder {
+    color: #fff;
+}
+
+label {
+    font-family: var(--parrafo);
+    color: #fff;
+    font-size: 20px;
+}
+
+.botonFrom {
+    width: 200px;
+    background-color: var(--color-rojo-intenso);
+    border: none;
+    color: #fff;
+    border-radius: 10px;
+    font-family: var(--parrafo);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 20px;
+}
+
+
+.map {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(10px);
+    width: 500px;
+    height: 500px;
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    padding: 50px;
+    border-radius: 15px;
+}
+
+.iconoEncontrarnos {
+    color: var(--color-rojo-intenso);
+    font-size: 30px;
+}
+
+.encontrarnos {
+    color: #fff;
+    font-size: 20px;
+    font-family: var(--parrafo);
+    padding-left: 20px;
+}
+
+.opcionesEncontrarnos {
+    padding: 15px 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+=======================================================================
+=======================================================================
+=======================================================================
+INDEX NOSOTROS 
+=======================================================================
+=======================================================================
+=======================================================================
+
+*/
+.heroNosotros {
+    position: relative;
+    background: linear-gradient(rgba(0, 0, 0, 0.35)), url('/contenido/fotos/sobre-nosotros.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+}
+
+.texto-sobre {
+    width: 100%;
+    text-align: center;
+    color: var(--blanco-texto);
+}
+
+.texto-sobre .h1 {
+    width: 50%;
+}
+
+.texto-sobre {
+    text-align: start;
+}
+
+.parrafo-banner {
+    font-family: var(--parrafo);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    width: 50%;
+    margin: 34px 0;
+    color: var(--blanco-texto);
+}
+
+.boton-ver {
+    padding: 15px 70px;
+    display: inline-flex;
+    border-radius: 10px;
+    background: var(--color-rojo-intenso);
+    color: var(--blanco-texto);
+    font-family: var(--parrafo);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    transform: scale(1);
+    transition: transform .5s ease-in-out;
+}
+
+.boton-ver span {
+    display: inline-flex;
+    transform: scale(1);
+    transition: all 0.5s ease-in-out;
+    color: var(--blanco-texto);
+    font-family: var(--parrafo);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.boton-ver:hover {
+    background: var(--rojo-suave);
+}
+
+.boton-ver:hover span {
+    color: var(--blanco-texto);
+    transform: scale(1.1);
+}
+
+.imagenesNosotros img {
+    width: 400px;
+    height: 350px;
+}
+
+.informacionNosotros {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 65px;
+}
+
+.informacionNosotros p {
+    text-align: center;
+}
+
+.imagenesNosotros {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 30px;
+    width: 40%;
+    align-items: end;
+}
+
+.SobeNosotrosExpli {
+    background-color: var(--color-fondo);
+    height: auto;
+}
+
+.SobeNosotrosExpli .h2 {
+    text-align: center;
+    padding: 60px 0 60px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*responsive de telefono*/
