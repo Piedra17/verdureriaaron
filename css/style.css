@@ -627,7 +627,7 @@ INDEX Productos
 
 .contenedorCards {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     flex-wrap: wrap;
     gap: 20px 10px;
 }
