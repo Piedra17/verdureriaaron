@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="contenido/logos/favicon.png" type="image/x-icon">
+    <title>DaverFrut|Productos La Cima</title>
+    <!-- link de iconos -->
+    <!-- link de iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- estilos de css  -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <!-- Menu -->
+    <header class="reduce-header" id="header">
+        <article class="contenido-nav">
+            <div class="header-container">
+                <div class="logo">
+                    <a href="index.html"><img src="contenido/logos/logo.png" alt="Logo DaverFrut"></a>
+                </div>
+
+                <nav class="nav-menu" id="nav-menu">
+                    <ul>
+                        <li><a href="index.html" class="nav-link">Inicio</a></li>
+                        <li><a href="#sobrenoso" class="nav-link">Sobre Nosotros</a></li>
+                        <li><a href="#productos" class="nav-link">Productos</a></li>
+                        <li><a href="#creemos" class="nav-link">Valores</a></li>
+                        <li><a href="#contacto" class="nav-link">Contáctame</a></li>
+                        <li class="carrito-icono">
+                            <a href="#" id="abrirCarrito"><i class="fa-solid fa-basket-shopping"></i> <span
+                                    id="contadorCarrito">0</span></a>
+                        </li>
+
+                    </ul>
+                </nav>
+
+                <div class="menu-toggle" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </article>
+    </header>
+    <div id="carritoModal" class="carrito-modal">
+        <div class="carrito-contenido">
+            <span id="cerrarCarrito" class="cerrar">&times;</span>
+            <h3><i class="fa-solid fa-cart-shopping"></i>Tu carrito</h3>
+            <table id="listaCarrito"></table>
+            <button id="finalizarCompra">Finalizar compra por WhatsApp</button>
+        </div>
+    </div>
+    <!-- Banner -->
+    <section class="hero" id="inicio">
+        <article class="contenido-hero">
+            <div class="hero-text">
+                <h1 class="typing-text h1">Orgullo <span class="h1Span">cimeño</span> en cada producto: 100% orgánico y
+                    artesanal</h1>
+                <p class="separacionBanner parrafoBanner">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Voluptatibus porro, praesentium aspernatur dicta optio illum. Corporis ab enim obcaecati tempora.
+                </p>
+                <a href="#" class="boton-banner">Conoce más </a>
+            </div>
+        </article>
+    </section>
+    <section class="productos">
+        <article class="productosTodos">
+            <div class="filtro">
+                <h2 class="h3 tituloFiltros">Todos Nuestros Productos</h2>
+                <div class="botones-filtro">
+                    <button class="btn-filtro activo" data-categoria="todos">Todos</button>
+                    <button class="btn-filtro" data-categoria="frutas">Frutas</button>
+                    <button class="btn-filtro" data-categoria="verduras">Verduras</button>
+                    <button class="btn-filtro" data-categoria="tubérculos">Tubérculos</button>
+                    <button class="btn-filtro" data-categoria="hierbas aromáticas">Olores</button>
+                    <button class="btn-filtro" data-categoria="lacteos">Lácteos</button>
+                </div>
+            </div>
+            <!-- cards de productos -->
+            <div class="contenedorCards"></div>
+        </article>
+    </section>
+    <footer class="footer">
+        <article class="contenidoFooter">
+            <img src="/contenido/logos/logo.png" alt="logo" class="logoF">
+
+            <div class="opcionesMenu">
+                <ul>
+                    <li><a href="index.html" class="nav-link">Inicio</a></li>
+                    <li><a href="#sobrenoso" class="nav-link">Sobre Nosotros</a></li>
+                    <li><a href="#productos" class="nav-link">Productos</a></li>
+                    <li><a href="#creemos" class="nav-link">Valores</a></li>
+                    <li><a href="#contacto" class="nav-link">Contáctame</a></li>
+                </ul>
+            </div>
+        </article>
+
+        <div class="footer-contenido">
+            <p>&copy; 2025 DaverFrut | Productos La Cima. Todos los derechos reservados.</p>
+            <p>Power By Kendall.p</p>
+        </div>
+    </footer>
+    <script src="js/productos.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/carrito.js"></script>
+</body>
+
+</html>
