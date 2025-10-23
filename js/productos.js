@@ -97,7 +97,7 @@ const productos = [
     {
         nombre: "Repollo Morado",
         categoria: "verduras",
-        imagen: "inventario/Repollo morado.png",
+        imagen: "inventario/repollo morado.png",
         descripcion: "De color intenso y textura crujiente. Ideal para ensaladas o salteados llenos de color.",
         modalId: "modalRepolloMorado"
     },
