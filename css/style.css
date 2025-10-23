@@ -95,6 +95,7 @@ header {
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
     position: fixed;
     width: 100%;
+    z-index:10000;
 }
 
 .contenido-nav {
@@ -1109,3 +1110,4 @@ INDEX NOSOTROS
     }
 
 }
+
