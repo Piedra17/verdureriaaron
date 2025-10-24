@@ -78,9 +78,10 @@ MENU
 */
 
 body {
-    background: var(--color-fondo);
-    ;
+    background: var(--color-fondo)
+        /* url('/contenido/logos/iconos-creemos/agricultura.png') no-repeat center center; */
 }
+
 
 .logo img {
     width: 200px;
@@ -326,7 +327,7 @@ Productos
     z-index: 1;
 }
 
-.nombreProductos{
+.nombreProductos {
     width: 120px;
 }
 
@@ -368,9 +369,12 @@ Creemos
 
 .cards-creemos {
     padding: 60px 20px;
-    display: flex;
     gap: 10px;
     justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
 .card-creemos-contenido {
@@ -693,7 +697,14 @@ INDEX Productos
 .carrito {
     position: absolute;
     top: 0px;
-    right: 0px;
+    transform: translateX(400px);
+    z-index: 100;
+    transition: transform 1s ease-in;
+}
+
+.card-producto:hover .carrito {
+    transform: translateX(295px);
+    transition: transform 0.5s ease-out;
 }
 
 .agregaCarrito {
@@ -701,6 +712,8 @@ INDEX Productos
     border: none;
     padding: 15px 30px;
     border-radius: 0px 0px 0px 10px;
+    z-index: 100;
+
 }
 
 .agregaCarrito i {
@@ -747,29 +760,71 @@ INDEX Productos
 }
 
 .modal-contenido {
-    background-color: #fff;
-    padding: 30px;
+    background-color: var(--color-fondo);
+    padding: 50px;
     border-radius: 12px;
     max-width: 500px;
     text-align: center;
     position: relative;
 }
 
-.cerrar {
+.cerrarM {
     position: absolute;
     top: 10px;
     right: 20px;
-    font-size: 24px;
+    font-size: 50px;
+    color: #fff;
     cursor: pointer;
+}
+
+.parrafo {
+    font-size: 20px;
+    font-family: var(--parrafo);
+    color: #fff;
 }
 
 .imagen-modal {
     width: 100%;
+    height: 300px;
     margin-top: 20px;
     border-radius: 8px;
 }
 
+.paginacion {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-top: 100px;
+    align-items: center;
+}
 
+.btnSiguete {
+    background-color: var(--color-rojo-intenso);
+    border: none;
+    color: #fff;
+    padding: 10px 30px;
+    font-family: var(--parrafo);
+    font-size: 20px;
+    height: 70px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.numerosPaginas.activo {
+    background: var(--verde-oliva);
+}
+
+.numerosPaginas {
+    background-color: var(--color-rojo-intenso);
+    border: none;
+    color: #fff;
+    padding: 20px 30px;
+    font-family: var(--parrafo);
+    font-size: 20px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
 
 
@@ -1038,12 +1093,8 @@ INDEX NOSOTROS
 
 
 
-
-
-
-/*responsive de telefono*/
-
-@media (max-width: 768px) {
+/* responsive de tablet */
+@media (max-width: 1080px) {
     .nav-menu ul {
         flex-direction: column;
         position: absolute;
@@ -1053,11 +1104,15 @@ INDEX NOSOTROS
         /* efecto glass oscuro */
         /* efecto glass oscuro */
         width: 100%;
-        padding: 20px;
+        padding: 50px;
         display: none;
         opacity: 0;
         transform: translateY(-20px);
         transition: all 0.5s ease-in-out;
+    }
+
+    .nav-menu ul li a {
+        font-size: 25px;
     }
 
     .nav-menu.active ul {
@@ -1069,13 +1124,14 @@ INDEX NOSOTROS
     .menu-toggle {
         display: block;
         z-index: 1100;
-        color: var(--negro-intendo);
-        font-size: 35px;
+        color: var(--blanco-texto);
+        font-size: 40px;
         cursor: pointer;
         transition: transform 0.3s ease;
     }
 
     .menu-toggle i {
+        font-size: 50px;
         transition: transform 0.4s ease, opacity 0.4s ease;
     }
 
@@ -1086,6 +1142,33 @@ INDEX NOSOTROS
     }
 
 
+    .contacto {
+        height: 1500px;
+    }
+
+    .contactMap {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .cards-creemos {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+    }
+    .card-producto:target .carrito {
+        transform: translateX(295px);
+        transition: transform 0.5s ease-out;
+    }
+}
+
+/*responsive de telefono*/
+
+@media (max-width: 768px) {
 
     /* texto h1*/
     .hero-text {
@@ -1109,4 +1192,17 @@ INDEX NOSOTROS
         font-size: 20px;
     }
 
+
+
+
+
+
+    /* cards creemos */
+    .cards-creemos {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        max-width: 768px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+    }
 }

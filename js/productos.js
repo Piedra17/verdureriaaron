@@ -244,7 +244,7 @@ const productos = [
     {
         nombre: "Elote",
         categoria: "verduras",
-        imagen: "inventario/elote.png",
+        imagen: "inventario/Elote.png",
         descripcion: "Dulce y tierno. Perfecto para asar, hervir o preparar deliciosos elotes con mantequilla.",
         modalId: "modalElote"
     },
