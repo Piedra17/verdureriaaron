@@ -43,14 +43,7 @@
             </div>
         </article>
     </header>
-    <div id="carritoModal" class="carrito-modal">
-        <div class="carrito-contenido">
-            <span id="cerrarCarrito" class="cerrar">&times;</span>
-            <h3><i class="fa-solid fa-cart-shopping"></i> Tu Pedido</h3>
-            <table id="listaCarrito"></table>
-            <button id="finalizarCompra">Finalizar compra por WhatsApp</button>
-        </div>
-    </div>
+
     <!-- Banner -->
     <section class="hero" id="inicio">
         <article class="contenido-hero">
@@ -64,25 +57,36 @@
             </div>
         </article>
     </section>
-    <section class="productos">
-        <article class="productosTodos">
-            <div class="filtro">
-                <h2 class="h3 tituloFiltros">Todos Nuestros Productos</h2>
-                <div class="botones-filtro">
-                    <button class="btn-filtro activo" data-categoria="todos">Todos</button>
-                    <button class="btn-filtro" data-categoria="frutas">Frutas</button>
-                    <button class="btn-filtro" data-categoria="verduras">Verduras</button>
-                    <button class="btn-filtro" data-categoria="tubérculos">Tubérculos</button>
-                    <button class="btn-filtro" data-categoria="hierbas aromáticas">Olores</button>
-                    <button class="btn-filtro" data-categoria="lacteos">Lácteos</button>
+
+    <main>
+        <section class="productos">
+            <article class="productosTodos">
+                <div class="filtro">
+                    <h2 class="h3 tituloFiltros">Todos Nuestros Productos</h2>
+                    <div class="botones-filtro">
+                        <button class="btn-filtro activo" data-categoria="todos">Todos</button>
+                        <button class="btn-filtro" data-categoria="frutas">Frutas</button>
+                        <button class="btn-filtro" data-categoria="verduras">Verduras</button>
+                        <button class="btn-filtro" data-categoria="tubérculos">Tubérculos</button>
+                        <button class="btn-filtro" data-categoria="hierbas aromáticas">Olores</button>
+                        <button class="btn-filtro" data-categoria="lacteos">Lácteos</button>
+                    </div>
                 </div>
-            </div>
-            <!-- cards de productos -->
-            <div class="contenedorCards"></div>
-            <!-- cards de productos pagination -->
-            <div class="paginacion"></div>
-        </article>
-    </section>
+                <!-- cards de productos -->
+                <div class="contenedorCards"></div>
+                <!-- cards de productos pagination -->
+                <div class="paginacion"></div>
+            </article>
+        </section>
+    </main>
+    <div id="carritoModal" class="carrito-modal">
+        <div class="carrito-contenido">
+            <span id="cerrarCarrito" class="cerrarCarrito">&times;</span>
+            <h3><i class="fa-solid fa-cart-shopping"></i> Tu Pedido</h3>
+            <table id="listaCarrito"></table>
+            <button id="finalizarCompra">Finalizar compra por WhatsApp</button>
+        </div>
+    </div>
     <footer class="footer">
         <article class="contenidoFooter">
             <img src="/contenido/logos/logo.png" alt="logo" class="logoF">

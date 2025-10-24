@@ -49,7 +49,7 @@ function actualizarCarrito() {
     tr.innerHTML = `
       <td class="imagen-carrito"><img src="${p.imagen}" alt="${p.nombre}"></td>
       <td class="nombreProductos"><span>${p.nombre}</span></td>
-      <td><input type="number" min="1" value="${p.cantidad}" data-index="${index}"></td>
+      <td><input class="inputCantidadPro" type="number" min="1" value="${p.cantidad}" data-index="${index}"></td>
       <td class="botonEliminarProduc">
         <button class="eliminar-producto" data-index="${index}" style="margin-left:10px; background:red; color:white;">Eliminar</button>
       </td>
