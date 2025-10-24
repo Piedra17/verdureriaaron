@@ -146,7 +146,7 @@ const productos = [
     {
         nombre: "Jengibre",
         categoria: "verduras",
-        imagen: "inventario/Jengibre.png",
+        imagen: "inventario/jengibre.png",
         descripcion: "Picante y fragante. Ideal para infusiones, marinados o platos orientales.",
         modalId: "modalJengibre"
     },
@@ -160,7 +160,7 @@ const productos = [
     {
         nombre: "Tomate",
         categoria: "verduras",
-        imagen: "inventario/Tomate.png",
+        imagen: "inventario/tomate.png",
         descripcion: "Jugoso y lleno de sabor. Base de salsas, ensaladas y guisos.",
         modalId: "modalTomate"
     },
@@ -181,14 +181,14 @@ const productos = [
     {
         nombre: "Berenjena",
         categoria: "verduras",
-        imagen: "inventario/Berenjena.png",
+        imagen: "inventario/berenjena.png",
         descripcion: "Suave y versátil. Ideal para asar, hornear o preparar lasañas vegetales.",
         modalId: "modalBerenjena"
     },
     {
         nombre: "Zanahoria",
         categoria: "tubérculos",
-        imagen: "inventario/Zanahoria.png",
+        imagen: "inventario/zanahoria.png",
         descripcion: "Crujiente y naturalmente dulce. Rica en betacarotenos y perfecta en ensaladas o sopas.",
         modalId: "modalZanahoria"
     },
@@ -280,7 +280,7 @@ const productos = [
         modalId: "modalCamote"
     },
     {
-        nombre: "Yuca",
+        nombre: "yuca",
         categoria: "tubérculos",
         imagen: "inventario/Yuca.png",
         descripcion: "Raíz tropical con sabor suave. Ideal para hervir, freír o preparar enyucados.",
@@ -326,14 +326,14 @@ const productos = [
     {
         nombre: "Perejil",
         categoria: "hierbas aromáticas",
-        imagen: "inventario/Peregil.png",
+        imagen: "inventario/peregil.png",
         descripcion: "Herbácea y fresca. Ideal para decorar y realzar el sabor de tus comidas.",
         modalId: "modalPeregil"
     },
     {
         nombre: "Albahaca",
         categoria: "hierbas aromáticas",
-        imagen: "inventario/Albahaca.png",
+        imagen: "inventario/albahaca.png",
         descripcion: "Hoja fragante y dulce. Perfecta para pastas, pizzas y salsas italianas.",
         modalId: "modalAlbahaca"
     },
