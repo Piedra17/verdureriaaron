@@ -23,7 +23,7 @@ const productos = [
     {
         nombre: "Mandarina agria",
         categoria: "frutas",
-        imagen: "inventario/Mandarina Agria.png",
+        imagen: "inventario/Mandarina agria.png",
         descripcion: "Ideal para aderezos, marinados o bebidas. Su sabor ácido aporta un toque único y tradicional.",
         modalId: "modalMandarinaAgria"
     },
