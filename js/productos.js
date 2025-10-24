@@ -37,7 +37,7 @@ const productos = [
     {
         nombre: "Banano",
         categoria: "frutas",
-        imagen: "inventario/Banano.png",
+        imagen: "inventario/banano.png",
         descripcion: "Energético y natural. Ideal para batidos, postres o como snack antes del ejercicio.",
         modalId: "modalBanano"
     },
@@ -83,7 +83,7 @@ const productos = [
     {
         nombre: "Lechuga",
         categoria: "verduras",
-        imagen: "inventario/Lechuga.png",
+        imagen: "inventario/lechuga.png",
         descripcion: "Fresca y crujiente, perfecta para ensaladas y acompañamientos ligeros.",
         modalId: "modalLechuga"
     },
@@ -104,7 +104,7 @@ const productos = [
     {
         nombre: "Espinaca",
         categoria: "verduras",
-        imagen: "inventario/Espinaca.png",
+        imagen: "inventario/espinaca.png",
         descripcion: "Rica en hierro y fibra. Perfecta para jugos verdes, ensaladas o platos salteados.",
         modalId: "modalEspinaca"
     },
