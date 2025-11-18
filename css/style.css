@@ -213,8 +213,11 @@ sobre nosotros
     padding: 60px 0;
 }
 
-.contenido-nosotros {
-    width: 50%;
+.contenidoNosotros {
+        display: flex;
+
+        margin: 0 auto;
+        width: 85%;
 }
 
 .separacionNosotros {
@@ -1243,7 +1246,7 @@ INDEX NOSOTROS
         margin-bottom: 50px;
     }
 
-    .h1Span{
+    .h1Span {
         font-size: 50px;
     }
 
@@ -1251,48 +1254,68 @@ INDEX NOSOTROS
         padding: 15px 20px;
         font-size: 20px;
     }
-    
-    .h2{
+
+    .h2 {
         font-size: 40px;
         text-align: center;
     }
 
 
-    img.imagenNosotros{
+    img.imagenNosotros {
         width: 400px;
         padding-top: 10px;
+        margin: 0 auto;
     }
-    
+
     p.parrafoBanner {
         font-size: 18px;
         padding: 15px;
-        width: 400px;
+        width: 100%;
         margin: 0 auto;
-        text-align: center; /* esto centra el texto */
+        text-align: center;
+        /* esto centra el texto */
+    }
+
+
+    .contenidoNosotros{
+        flex-direction: column;
+        margin: 0;
+    }
+
+    .contenido-nosotros {
+        width: 100%;
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .h3{
+        font-size: 30px;
     }
 
 
 
 
-    .titulo-creemos{
+    .titulo-creemos {
         font-size: 45px;
         padding: 15px;
     }
 
-    .parrafo-creemos{
+    .parrafo-creemos {
         font-size: 20px;
         padding: 25px;
     }
 
-    .productosCards{
+    .productosCards {
         display: flex;
         flex-direction: column;
     }
 
-    .card{
+    .card {
         height: 500px;
     }
-    .cards-creemos{
+
+    .cards-creemos {
         display: flex;
         flex-direction: column;
         width: 100%;
@@ -1301,16 +1324,17 @@ INDEX NOSOTROS
         margin: 0 auto;
     }
 
-    input, textarea{
+    input,
+    textarea {
         width: 400px;
     }
 
-    .fondoFrom{
+    .fondoFrom {
         width: 95%;
         margin: 0 auto;
     }
 
-    .map{
+    .map {
         width: 95%;
         margin: 0 auto;
     }
