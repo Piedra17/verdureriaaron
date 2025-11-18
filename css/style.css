@@ -490,6 +490,7 @@ textarea:focus {
     background-color: rgba(255, 255, 255, 0.1);
     box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
     transition: all 0.3s ease-in-out;
+    color: #fff;
 }
 
 input:focus {
@@ -498,6 +499,7 @@ input:focus {
     background-color: rgba(255, 255, 255, 0.1);
     box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
     transition: all 0.3s ease-in-out;
+    color: #fff;
 }
 
 
@@ -539,6 +541,7 @@ label {
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
     padding: 50px;
     border-radius: 15px;
+    color: #fff;
 }
 
 .iconoEncontrarnos {
@@ -557,6 +560,9 @@ label {
     padding: 15px 0;
 }
 
+input, textarea {
+    color: #fff;
+}
 
 
 /*footer*/
@@ -1196,7 +1202,7 @@ INDEX NOSOTROS
 
 
     .contacto {
-        height: 1500px;
+        height: 1300px;
     }
 
     .contactMap {
@@ -1326,16 +1332,27 @@ INDEX NOSOTROS
 
     input,
     textarea {
-        width: 400px;
+        width: 350px;
+        margin: 10px auto; 
     }
 
     .fondoFrom {
-        width: 95%;
+        width: 380px;
         margin: 0 auto;
+    }
+
+    form{
+        padding: 0;
     }
 
     .map {
         width: 95%;
+        margin: 0 auto;
+    }
+
+    .botonFrom{
+        width: 200px;
+        justify-content: center;
         margin: 0 auto;
     }
 
