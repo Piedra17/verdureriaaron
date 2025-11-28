@@ -214,10 +214,10 @@ sobre nosotros
 }
 
 .contenidoNosotros {
-        display: flex;
+    display: flex;
 
-        margin: 0 auto;
-        width: 85%;
+    margin: 0 auto;
+    width: 85%;
 }
 
 .separacionNosotros {
@@ -560,7 +560,8 @@ label {
     padding: 15px 0;
 }
 
-input, textarea {
+input,
+textarea {
     color: #fff;
 }
 
@@ -1152,6 +1153,7 @@ INDEX NOSOTROS
 
 
 
+
 /* responsive de tablet */
 @media (max-width: 1080px) {
     .nav-menu ul {
@@ -1283,7 +1285,7 @@ INDEX NOSOTROS
     }
 
 
-    .contenidoNosotros{
+    .contenidoNosotros {
         flex-direction: column;
         margin: 0;
     }
@@ -1295,7 +1297,8 @@ INDEX NOSOTROS
         justify-content: center;
         align-items: center;
     }
-    .h3{
+
+    .h3 {
         font-size: 30px;
     }
 
@@ -1333,7 +1336,7 @@ INDEX NOSOTROS
     input,
     textarea {
         width: 350px;
-        margin: 10px auto; 
+        margin: 10px auto;
     }
 
     .fondoFrom {
@@ -1341,7 +1344,7 @@ INDEX NOSOTROS
         margin: 0 auto;
     }
 
-    form{
+    form {
         padding: 0;
     }
 
@@ -1350,7 +1353,7 @@ INDEX NOSOTROS
         margin: 0 auto;
     }
 
-    .botonFrom{
+    .botonFrom {
         width: 200px;
         justify-content: center;
         margin: 0 auto;
@@ -1369,5 +1372,82 @@ INDEX NOSOTROS
         max-width: 768px;
         margin: 0 auto;
         padding: 2rem 1rem;
+    }
+
+
+
+
+
+    /*//////////////////////////////////////////////////////////////////
+    Resposive de Nosotros
+    ////////////////////////////////////////////////////////////////////*/
+    .texto-sobre .h1{
+        width: 100%;
+        padding-top: 150px;
+        font-size: 60px;
+        text-align: center;
+    }
+
+    .texto-sobre {
+        text-align: center;
+    }
+
+    .h1Span {
+        font-size: 60px;
+    }
+
+    .parrafo-banner{
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+        padding-top: 10px;
+        width: 100%;
+    }
+
+    .boton-ver{
+        margin-top: 50px;
+        padding: 15px 40px;
+    }
+
+    .imagenesNosotros {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        width: 10%;
+        gap: 10px;
+        flex-direction: row;
+    }
+
+    .imagenesNosotros{
+        display: none;
+    }
+    
+    
+    .SobeNosotrosExpli .h2{
+        padding: 20px 0 20px;
+    }
+
+    .contenido-hero{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .informacionNosotros{
+        gap: 10px;
+    }
+
+    .btnSiguete{
+        padding: 10px 20px;
+        font-size: 17px;
+    }
+
+    .numerosPaginas{
+        padding: 10px 20px;
+        font-size: 20px;
     }
 }
