@@ -58,27 +58,30 @@
         </article>
     </section>
 
-    <main>
-        <section class="productos">
-            <article class="productosTodos">
-                <div class="filtro">
-                    <h2 class="h3 tituloFiltros">Todos Nuestros Productos</h2>
-                    <div class="botones-filtro">
-                        <button class="btn-filtro activo" data-categoria="todos">Todos</button>
-                        <button class="btn-filtro" data-categoria="frutas">Frutas</button>
-                        <button class="btn-filtro" data-categoria="verduras">Verduras</button>
-                        <button class="btn-filtro" data-categoria="tubérculos">Tubérculos</button>
-                        <button class="btn-filtro" data-categoria="hierbas aromáticas">Olores</button>
-                        <button class="btn-filtro" data-categoria="lacteos">Lácteos</button>
-                    </div>
+   <main>
+    <section class="productos">
+        <article class="productosTodos">
+            <div class="filtro">
+                <h2 class="h3 tituloFiltros">Todos Nuestros Productos</h2>
+                <div class="botones-filtro">
+                    <button class="btn-filtro activo" data-categoria="todos">Todos</button>
+                    <button class="btn-filtro" data-categoria="frutas">Frutas</button>
+                    <button class="btn-filtro" data-categoria="verduras">Verduras</button>
+                    <button class="btn-filtro" data-categoria="tubérculos">Tubérculos</button>
+                    <button class="btn-filtro" data-categoria="hierbas aromáticas">Olores</button>
+                    <button class="btn-filtro" data-categoria="lacteos">Lácteos</button>
                 </div>
-                <!-- cards de productos -->
-                <div class="contenedorCards"></div>
-                <!-- cards de productos pagination -->
-                <div class="paginacion"></div>
-            </article>
-        </section>
-    </main>
+            </div>
+            <!-- cards de productos -->
+            <div class="contenedorCards"></div>
+            <!-- cards de productos pagination -->
+            <div class="paginacion"></div>
+        </article>
+    </section>
+</main>
+
+<!-- NUEVO: contenedor separado para los modales -->
+<div class="contenedorModales"></div>
     <div id="carritoModal" class="carrito-modal">
         <div class="carrito-contenido">
             <span id="cerrarCarrito" class="cerrarCarrito">&times;</span>
@@ -107,7 +110,6 @@
             <p>Power By <a href="#" class="parrafoFotter">Kendall</a> & <a href="#" class="parrafoFotter">Natofer</a></p>
         </div>
     </footer>
-    <script src="js/productos.js"></script>
     <script src="js/script.js"></script>
     <script src="js/carrito.js"></script>
 </body>
