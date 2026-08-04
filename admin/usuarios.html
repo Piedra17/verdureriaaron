@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuarios</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+    <header class="menu reduce-header" id="header">
+        <article class="contenido-nav">
+            <div class="header-container">
+                <div class="logo">
+                    <a href="index.html"><img src="img/logo.png" alt="Logo DaverFrut"></a>
+                </div>
+
+                <nav class="nav-menu" id="nav-menu">
+                    <ul>
+                        <li><a href="dashboard.html" class="nav-link">Inicio</a></li>
+                        <li><a href="usuarios.html" class="nav-link">Usuarios</a></li>
+                        <li><a href="#productos" class="nav-link">Productos</a></li>
+                    </ul>
+                </nav>
+
+                <div class="menu-toggle" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </article>
+    </header>
+    <section class="usuarios">
+        <article class="container">
+            <a href="registrar.html" class="crear">Crear un usuario</a>
+            <div class="cardsU" id="cardsUsuarios">
+
+            </div>
+
+        </article>
+    </section>
+</body>
+<script>
+    let container = document.querySelector('#cardsUsuarios');
+    let token = localStorage.getItem('token')
+    if (!token) {
+        location.href = 'login.html'
+    }
+    URLUsuarios = 'https://verduleria-api-nycc.onrender.com/api/usuarios'
+    container.innerHTML = ''
+
+    const mostrarUsuarios = (usuarios) => {
+
+        usuarios.forEach(usuario => {
+            let card = document.createElement('div')
+            card.classList.add('cardUsuario')
+            card.innerHTML = `
+           
+                    <h2>Nombre:${usuario.name}</h2>
+                    <p>Email:${usuario.email}</p>
+                    <p>Role:${usuario.role}</p>
+                    <p>Estado:${usuario.activo}</p>
+                    <div class="acciones">
+                        <a class="editar" href="editarUsuario.html?id=${usuario.id}">Editar</a>
+                    </div>
+            `
+            container.appendChild(card)
+        });
+    }
+    const getUsuarios = () => {
+        fetch(URLUsuarios, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        })
+            .then(response => response.json())
+            .then(UsersData => {
+                mostrarUsuarios(UsersData.usuario);
+            })
+    }
+    getUsuarios()
+</script>
+
+</html>

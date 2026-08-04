@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<header class="menu reduce-header" id="header">
+        <article class="contenido-nav">
+            <div class="header-container">
+                <div class="logo">
+                    <a href="index.html"><img src="img/logo.png" alt="Logo DaverFrut"></a>
+                </div>
+
+                <nav class="nav-menu" id="nav-menu">
+                    <ul>
+                        <li><a href="index.html" class="nav-link">Inicio</a></li>
+                        <li><a href="usuarios.html" class="nav-link">Usuarios</a></li>
+                        <li><a href="#productos" class="nav-link">Productos</a></li>
+                    </ul>
+                </nav>
+
+                <div class="menu-toggle" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </article>
+    </header>
+<body>
+
+    <a href="usuarios.html" class="crear">← Regresar</a>
+
+    <section class="registro">
+
+        <form class="formularioRegistro"  method="post">
+
+            <h2 class="h2login">Registrar usuario</h2>
+
+            <label>Nombre de usuario</label>
+            <input class="input" type="text" id="name" placeholder="Ingrese su usuario">
+
+            <label>Email de usuario</label>
+            <input class="input" type="email" id="email" placeholder="Ingrese su email">
+
+            <label>Role de usuario</label>
+            <input class="input" type="text" id="role" placeholder="Ingrese su role">
+
+            <label>Contraseña</label>
+            <input class="input" type="password" id="password" placeholder="Ingrese su contraseña">
+
+            <input class="btn" type="submit" value="Registrar" onclick="ejecutarRegistrar(event)">
+
+        </form>
+
+    </section>
+
+</body>
+<script>
+    let inputNombre = document.querySelector('#name')
+    let inputContra = document.querySelector('#password')
+    let inputEmail = document.querySelector('#email')
+    let inputRole = document.querySelector('#role')
+    let token = localStorage.getItem('token')
+    if(!token){
+        location.href='login.html'
+    }
+    const URLRegistrar = 'https://verduleria-api-nycc.onrender.com/api/registrar'
+    console.log(URLRegistrar)
+
+    const revisarRegistrar = (RegistrarUser) => {
+        if (!RegistrarUser.success) {
+            alert("Ocurrio un error")
+            return
+        }
+        location.href = 'usuarios.html'
+    }
+
+    const ejecutarRegistrar = (e) => {
+        e.preventDefault()
+        if (!inputNombre.value || !inputContra.value || !inputEmail.value || !inputRole.value) {
+            alert('Error al ingresar los valores')
+            return
+        }
+        const userRegistrarData = { name: inputNombre.value, password: inputContra.value, email: inputEmail.value, role: inputRole.value }
+        console.log(userRegistrarData)
+        fetch(URLRegistrar, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify(userRegistrarData)
+        })
+            .then(response => response.json())
+            .then(RegistrarUser => {
+                revisarRegistrar(RegistrarUser)
+            })
+    }
+</script>
+
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Usuario</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<header class="menu reduce-header" id="header">
+    <article class="contenido-nav">
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html"><img src="img/logo.png" alt="Logo DaverFrut"></a>
+            </div>
+
+            <nav class="nav-menu" id="nav-menu">
+                <ul>
+                    <li><a href="index.html" class="nav-link">Inicio</a></li>
+                    <li><a href="usuarios.html" class="nav-link">Usuarios</a></li>
+                    <li><a href="#productos" class="nav-link">Productos</a></li>
+                </ul>
+            </nav>
+
+            <div class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </article>
+</header>
+
+<body>
+
+    <a href="usuarios.html" class="crear">← Regresar</a>
+
+    <section class="registro">
+
+        <form class="formularioRegistro" method="post">
+
+            <h2 class="h2login">Editar usuario</h2>
+
+            <label>Nombre de usuario</label>
+            <input class="input" type="text" id="name" placeholder="Ingrese su usuario">
+            <label>Email de usuario</label>
+            <input class="input" type="email" id="email" placeholder="Ingrese su email">
+            <label>Estado de usuario</label>
+
+            <select class="input" id="estado">
+                <option value="">Seleccione un estado</option>
+                <option value="activo">Activo</option>
+                <option value="inactivo">Inactivo</option>
+            </select>
+
+            <input class="btn" type="submit" value="Actualziar" onclick="editarUsuario(event)">
+
+        </form>
+
+    </section>
+    <script>
+
+        let token = localStorage.getItem('token')
+
+        let inputName = document.querySelector('#name')
+        let inputEmail = document.querySelector('#email')
+        let inputEstado = document.querySelector('#estado')
+
+        if (!token) {
+            location.href = 'login.html'
+        }
+
+
+        // Obtener ID desde la URL
+        const params = new URLSearchParams(window.location.search)
+        const userID = Number(params.get('id'))
+
+        if (!userID) {
+            location.href = 'usuarios.html'
+        }
+        const URLEditUsuarios = `https://verduleria-api-nycc.onrender.com/api/usuarios/${userID}`
+
+        const cargarUsuario = () => {
+
+            fetch(URLEditUsuarios, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Accept': 'application/json'
+                }
+            })
+
+                .then(response => response.json())
+
+                .then(data => {
+
+                    console.log(data)
+
+                    inputName.value = data.usuario.name
+                    inputEmail.value = data.usuario.email
+                    inputEstado.value = data.usuario.activo
+
+                })
+
+        }
+
+        cargarUsuario()
+
+        cargarUsuario()
+        const checkEdit = (usuario) => {
+
+            if (!usuario.success) {
+                alert("Ocurrió un error")
+                return
+            }
+
+            alert("Usuario actualizado correctamente")
+            location.href = 'usuarios.html'
+
+        }
+
+
+
+        const editarUsuario = (e) => {
+
+            e.preventDefault()
+
+
+            if (!inputName.value || !inputEmail.value) {
+
+                alert("Complete los campos")
+                return
+
+            }
+
+
+            fetch(URLEditUsuarios, {
+
+                method: 'PUT',
+
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+
+                body: JSON.stringify({
+
+                    name: inputName.value,
+                    email: inputEmail.value,
+                    activo:inputEstado.value
+
+                })
+
+            })
+
+                .then(response => response.json())
+                .then(usuarioJSON => checkEdit(usuarioJSON))
+
+
+        }
+
+
+    </script>
+</body>

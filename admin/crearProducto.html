@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Producto</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<header class="menu reduce-header" id="header">
+    <article class="contenido-nav">
+        <div class="header-container">
+
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/logo.png" alt="Logo DaverFrut">
+                </a>
+            </div>
+
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="usuarios.html">Usuarios</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </article>
+</header>
+
+
+<body>
+
+    <a href="productos.html" class="crear">← Regresar</a>
+
+
+    <section class="registro">
+
+        <form class="formulariCrear" method="post">
+
+            <h2 class="h2login">
+                Crear un producto
+            </h2>
+
+
+            <div class="contenidoCrear">
+
+
+                <div class="colunm">
+
+
+                    <label>Nombre del producto</label>
+
+                    <input class="input" type="text" id="nombre" placeholder="Ingrese el nombre del producto">
+
+
+
+                    <label>Descripción del producto</label>
+
+                    <input class="input" type="text" id="descripcion" placeholder="Ingrese una descripción">
+
+
+
+                    <label>Categoría del producto</label>
+
+
+                    <select class="input" id="categoria">
+
+                        <option value="">Seleccione una categoría</option>
+
+                        <option value="frutas">
+                            Frutas
+                        </option>
+
+                        <option value="verduras">
+                            Verduras
+                        </option>
+
+                        <option value="tuberculos">
+                            Tubérculos
+                        </option>
+
+                        <option value="hierbas_aromaticas">
+                            Hierbas aromáticas
+                        </option>
+
+                        <option value="lacteos">
+                            Lácteos
+                        </option>
+
+                    </select>
+
+
+                </div>
+
+
+
+
+                <div class="colunm">
+
+
+                    <label>Precio del producto</label>
+
+                    <input class="input" type="number" id="precio" placeholder="Ingrese el precio">
+
+
+
+                    <label>Precio al mayor del producto</label>
+
+                    <input class="input" type="number" id="precio_mayor" placeholder="Ingrese precio mayor">
+
+
+
+                    <label>Imagen del producto</label>
+
+                    <input class="input" type="file" id="imagen">
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <input class="btn" type="submit" value="Registrar" onclick="ejecutarRegistrar(event)">
+
+
+        </form>
+
+
+    </section>
+
+
+
+    <script>
+
+        let inputNombre = document.querySelector('#nombre')
+        let inputdescrpcion = document.querySelector('#descripcion')
+        let inputCategoria = document.querySelector('#categoria')
+        let inputPrecio = document.querySelector('#precio')
+        let inputPrecioMayor = document.querySelector('#precio_mayor')
+        let inputImage = document.querySelector('#imagen')
+
+
+        let token = localStorage.getItem('token')
+
+        if (!token) {
+            location.href = 'login.html'
+        }
+
+
+        const URLCrearProducto = 'https://verduleria-api-nycc.onrender.com/api/productos'
+
+
+        const revisarProducto = (crearProducto) => {
+
+            console.log(crearProducto)
+
+            if (!crearProducto.success) {
+
+                alert("Ocurrio un error")
+                return
+
+            }
+
+            location.href = 'productos.html'
+
+        }
+
+
+
+        const ejecutarRegistrar = (e) => {
+
+            e.preventDefault()
+
+
+            if (
+                !inputNombre.value ||
+                !inputdescrpcion.value ||
+                !inputCategoria.value ||
+                !inputPrecio.value ||
+                !inputPrecioMayor.value
+            ) {
+
+                alert('Error al ingresar los valores')
+                return
+
+            }
+
+
+            let datosProducto = new FormData()
+
+            datosProducto.append('nombre', inputNombre.value)
+            datosProducto.append('descripcion', inputdescrpcion.value)
+            datosProducto.append('categoria', inputCategoria.value)
+            datosProducto.append('precio', inputPrecio.value)
+            datosProducto.append('precio_mayor', inputPrecioMayor.value)
+
+
+            if (inputImage.files[0]) {
+                datosProducto.append('image_path', inputImage.files[0])
+            }
+
+            for (let dato of datosProducto.entries()) {
+                console.log(dato[0], dato[1])
+            }
+
+            fetch(URLCrearProducto, {
+
+                method: 'POST',
+
+                headers: {
+
+                    'Accept': 'application/json',
+
+                    'Authorization': `Bearer ${token}`
+
+                },
+
+                body: datosProducto
+
+            })
+
+                .then(response => response.json())
+
+                .then(CrearProducto => {
+
+                    revisarProducto(CrearProducto)
+
+                })
+
+                .catch(error => {
+
+                    console.log(error)
+
+                })
+
+
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>

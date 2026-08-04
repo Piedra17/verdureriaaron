@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuarios</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+
+    <header class="menu reduce-header" id="header">
+        <article class="contenido-nav">
+            <div class="header-container">
+
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="img/logo.png" alt="Logo DaverFrut">
+                    </a>
+                </div>
+
+                <nav class="nav-menu" id="nav-menu">
+                    <ul>
+                        <li><a href="dashboard.html" class="nav-link">Inicio</a></li>
+                        <li><a href="usuarios.html" class="nav-link">Usuarios</a></li>
+                        <li><a href="productos.html" class="nav-link">Productos</a></li>
+                    </ul>
+                </nav>
+
+                <div class="menu-toggle" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+
+            </div>
+        </article>
+    </header>
+
+
+    <section class="usuarios">
+
+        <article class="container">
+
+            <a href="productos.html" class="crear2">
+                Productos activos
+            </a>
+
+
+            <div class="cardsU" id="cardProductos">
+
+            </div>
+
+
+        </article>
+
+    </section>
+
+
+    <script>
+
+        let container = document.querySelector('#cardProductos');
+
+        let token = localStorage.getItem('token');
+
+
+        if (!token) {
+            location.href = 'login.html'
+        }
+
+
+        const URLProductos = 'https://verduleria-api-nycc.onrender.com/api/productos/inactivo';
+
+
+        container.innerHTML = '';
+
+
+
+        const mostrarProducto = (productos) => {
+
+
+            container.innerHTML = '';
+
+
+            productos.forEach(producto => {
+
+
+                let card = document.createElement('div');
+
+
+                card.classList.add('cradProducto');
+
+
+                card.innerHTML = `
+
+
+<div class="imgagenCard">
+
+    <img src="${producto.image_path}" 
+    alt="Imagen producto">
+
+</div>
+
+
+<h2>Nombre: ${producto.nombre}</h2>
+
+
+<p>Descripcion: ${producto.descripcion}</p>
+
+
+<p>Categoria: ${producto.categoria}</p>
+
+
+<p>Estado: ${producto.activo}</p>
+
+
+<div class="precios">
+
+    <p>Precio: ${producto.precio}</p>
+
+    <p>Mayor: ${producto.precio_mayor}</p>
+
+</div>
+
+
+<div class="acciones">
+
+    <a class="editar" href="editarProducto.html?id=${producto.id}">
+        Editar
+    </a>
+
+</div>
+
+
+`;
+
+
+                container.appendChild(card);
+
+
+            });
+
+
+        }
+
+
+
+
+        const getProductos = () => {
+
+
+            fetch(URLProductos, {
+
+
+                method: 'GET',
+
+
+                headers: {
+
+
+                    'Accept': 'application/json',
+
+                    'Authorization': `Bearer ${token}`
+
+
+                }
+
+
+            })
+
+
+                .then(response => response.json())
+
+
+                .then(ProductoData => {
+
+
+                    console.log(ProductoData);
+
+
+                    mostrarProducto(ProductoData.productos);
+
+
+                })
+
+
+                .catch(error => {
+
+
+                    console.log(error);
+
+
+                })
+
+
+
+        }
+
+
+
+        getProductos();
+
+
+
+    </script>
+
+
+</body>
+
+</html>

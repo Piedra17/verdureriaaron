@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Usuario</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<header class="menu reduce-header" id="header">
+    <article class="contenido-nav">
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html"><img src="img/logo.png" alt="Logo DaverFrut"></a>
+            </div>
+
+            <nav class="nav-menu" id="nav-menu">
+                <ul>
+                    <li><a href="index.html" class="nav-link">Inicio</a></li>
+                    <li><a href="usuarios.html" class="nav-link">Usuarios</a></li>
+                    <li><a href="#productos" class="nav-link">Productos</a></li>
+                </ul>
+            </nav>
+
+            <div class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </article>
+</header>
+
+<body>
+
+    <a href="productos.html" class="crear">← Regresar</a>
+
+    <section class="registro">
+        <form class="formulariCrear" method="post">
+
+            <h2 class="h2login">
+                Editar un producto
+            </h2>
+
+
+            <div class="contenidoCrear">
+
+
+                <div class="colunm">
+
+
+                    <label>Nombre del producto</label>
+
+                    <input class="input" type="text" id="nombre">
+
+
+
+                    <label>Descripción del producto</label>
+
+                    <input class="input" type="text" id="descripcion">
+
+
+
+                    <label>Categoría del producto</label>
+
+
+                    <select class="input" id="categoria">
+
+                        <option value="">Seleccione una categoría</option>
+
+                        <option value="frutas">
+                            Frutas
+                        </option>
+
+                        <option value="verduras">
+                            Verduras
+                        </option>
+
+                        <option value="tuberculos">
+                            Tubérculos
+                        </option>
+
+                        <option value="hierbas_aromaticas">
+                            Hierbas aromáticas
+                        </option>
+
+                        <option value="lacteos">
+                            Lácteos
+                        </option>
+
+                    </select>
+
+
+                </div>
+
+
+
+
+                <div class="colunm">
+
+
+                    <label>Precio del producto</label>
+
+                    <input class="input" type="number" id="precio">
+
+
+
+                    <label>Precio al mayor del producto</label>
+
+                    <input class="input" type="number" id="precio_mayor">
+
+
+                    <label>Estado del producto</label>
+
+                    <select class="input" id="estado">
+                        <option value="">Seleccione un estado</option>
+                        <option value="activo">Activo</option>
+                        <option value="inactivo">Inactivo</option>
+                    </select>
+
+
+                </div>
+
+
+            </div>
+            <label>Imagen del producto</label>
+
+            <input class="input" type="file" id="imagen">
+
+
+
+
+            <input class="btn" type="submit" value="Registrar" onclick="editProducto(event)">
+
+
+        </form>
+    </section>
+    <script>
+
+        let token = localStorage.getItem('token')
+
+        let inputNombre = document.querySelector('#nombre')
+        let inputdescrpcion = document.querySelector('#descripcion')
+        let inputCategoria = document.querySelector('#categoria')
+        let inputPrecio = document.querySelector('#precio')
+        let inputPrecioMayor = document.querySelector('#precio_mayor')
+        let inputImage = document.querySelector('#imagen')
+        let inputEstado = document.querySelector('#estado')
+
+        if (!token) {
+            location.href = 'login.html'
+        }
+
+        const params = new URLSearchParams(window.location.search)
+        const ProductoID = Number(params.get('id'))
+
+        if (!ProductoID) {
+            location.href = 'productos.html'
+        }
+
+        const URLEditProducto = `https://verduleria-api-nycc.onrender.com/api/productos/${ProductoID}`
+
+
+        const cargarProducto = () => {
+
+            fetch(URLEditProducto, {
+
+                method: 'GET',
+
+                headers: {
+
+                    'Authorization': `Bearer ${token}`,
+                    'Accept': 'application/json'
+
+                }
+
+            })
+
+                .then(response => response.json())
+
+                .then(data => {
+
+                    console.log(data)
+
+                    inputNombre.value = data.producto.nombre
+                    inputdescrpcion.value = data.producto.descripcion
+                    inputCategoria.value = data.producto.categoria
+                    inputPrecio.value = data.producto.precio
+                    inputPrecioMayor.value = data.producto.precio_mayor
+                    inputEstado.value = data.producto.activo
+
+                })
+
+        }
+
+        cargarProducto()
+
+
+        const checkEdit = (producto) => {
+
+            console.log(producto)
+
+            if (!producto.success) {
+
+                alert("Ocurrió un error")
+                return
+
+            }
+
+            alert("Producto actualizado correctamente")
+            location.href = 'productos.html'
+
+        }
+
+
+        const editProducto = (e) => {
+
+            e.preventDefault()
+
+            if (
+                !inputNombre.value ||
+                !inputdescrpcion.value ||
+                !inputCategoria.value ||
+                !inputPrecio.value ||
+                !inputPrecioMayor.value ||
+                !inputEstado.value
+            ) {
+
+                alert("Complete los campos")
+                return
+
+            }
+
+
+            let datosProducto = new FormData()
+
+            datosProducto.append('nombre', inputNombre.value)
+            datosProducto.append('descripcion', inputdescrpcion.value)
+            datosProducto.append('categoria', inputCategoria.value)
+            datosProducto.append('precio', inputPrecio.value)
+            datosProducto.append('precio_mayor', inputPrecioMayor.value)
+            datosProducto.append('activo', inputEstado.value)
+
+            if (inputImage.files[0]) {
+
+                datosProducto.append('image_path', inputImage.files[0])
+
+            }
+            datosProducto.append('_method', 'PUT')
+
+
+            fetch(URLEditProducto, {
+
+                method: 'POST',
+
+                headers: {
+
+                    'Authorization': `Bearer ${token}`,
+                    'Accept': 'application/json'
+
+                },
+
+                body: datosProducto
+
+            })
+
+                .then(response => response.json())
+
+                .then(productoJSON => {
+
+                    checkEdit(productoJSON)
+
+                })
+
+                .catch(error => {
+
+                    console.log(error)
+
+                })
+
+        }
+
+    </script>
+</body>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+    <section class="login">
+        <form class="formualarioLogin" action="" method="post">
+            <h2 class="h2login">Ingresar al panel de adminsitracion</h2>
+            <label for="">Nombre de usuario</label>
+            <input class="input" type="text" id="name" placeholder="Ingrese su usuario">
+            <label for="">Contrasena</label>
+            <input class="input" type="password" name="" id="password" placeholder="Ingrese su contrasena">
+            <input class="btn" type="submit" value="Ingresar" onclick="ejecutarLogin(event)">
+        </form>
+    </section>
+</body>
+<script>
+    let inputNombre = document.querySelector('#name')
+    let inputContra = document.querySelector('#password')
+    let token = localStorage.getItem('token')
+
+    if (token) {
+        location.href = 'dashboard.html'
+    }
+    const URLLogiun = 'https://verduleria-api-nycc.onrender.com/api/login'
+    console.log(URLLogiun)
+
+    const revisarLogin = (LoginUser) => {
+        if (!LoginUser.success) {
+            alert("Ocurrio un error")
+            return
+        }
+        localStorage.setItem('token', LoginUser.token)
+        location.href = 'dashboard.html'
+    }
+    const ejecutarLogin = (e) => {
+        e.preventDefault()
+        if (!inputNombre.value || !inputContra.value) {
+            alert('Error al ingresar los valores')
+            return
+        }
+        const userLoginData = { name: inputNombre.value, password: inputContra.value }
+        console.log(userLoginData)
+        fetch(URLLogiun, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(userLoginData)
+        })
+            .then(response => response.json())
+            .then(LoginUser => revisarLogin(LoginUser))
+
+    }
+</script>
+
+</html>

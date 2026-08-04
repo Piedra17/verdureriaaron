@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuarios</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+    <header class="menu reduce-header" id="header">
+        <article class="contenido-nav">
+            <div class="header-container">
+                <div class="logo">
+                    <a href="index.html"><img src="img/logo.png" alt="Logo DaverFrut"></a>
+                </div>
+
+                <nav class="nav-menu" id="nav-menu">
+                    <ul>
+                        <li><a href="dashboard.html" class="nav-link">Inicio</a></li>
+                        <li><a href="usuarios.html" class="nav-link">Usuarios</a></li>
+                        <li><a href="productos.html" class="nav-link">Productos</a></li>
+                    </ul>
+                </nav>
+
+                <div class="menu-toggle" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </article>
+    </header>
+    <section class="usuarios">
+
+        <article class="container">
+            <a href="crearProducto.html" class="crear">Crear un producto</a>
+            <a href="productosInactivos.html" class="crear2">Productos inactivos </a>
+            <div class="filtros">
+
+                <input class="input" type="text" id="buscar" placeholder="Buscar producto">
+
+                <select class="input" id="filtroCategoria">
+
+                    <option value="">Todas las categorías</option>
+
+                    <option value="frutas">Frutas</option>
+
+                    <option value="verduras">Verduras</option>
+
+                    <option value="tuberculos">Tubérculos</option>
+
+                    <option value="hierbas_aromaticas">Hierbas aromáticas</option>
+
+                    <option value="lacteos">Lácteos</option>
+
+                </select>
+
+            </div>
+            <div class="cardsU" id="cardProductos">
+
+            </div>
+
+
+        </article>
+    </section>
+</body>
+<script>
+    let container = document.querySelector('#cardProductos');
+    let inputBuscar = document.querySelector('#buscar')
+    let selectCategoria = document.querySelector('#filtroCategoria')
+
+    let listaProductos = []
+    let token = localStorage.getItem('token')
+    if (!token) {
+        location.href = 'login.html'
+    }
+    URLProductos = 'https://verduleria-api-nycc.onrender.com/api/productos'
+    container.innerHTML = ''
+
+    const mostrarProducto = (productos) => {
+        container.innerHTML = ''
+
+        productos.forEach(producto => {
+            console.log(producto.image_path);
+
+            let card = document.createElement('div')
+
+            card.classList.add('cradProducto')
+
+            card.innerHTML = `
+
+
+<div class="imgagenCard">
+
+    <img src="${producto.image_path}" 
+    alt="Imagen producto">
+
+</div>
+
+
+<h2>Nombre: ${producto.nombre}</h2>
+
+
+<p>Descripcion: ${producto.descripcion}</p>
+
+
+<p>Categoria: ${producto.categoria}</p>
+
+
+<p>Estado: ${producto.activo}</p>
+
+
+<div class="precios">
+
+    <p>Precio: ${producto.precio}</p>
+
+    <p>Mayor: ${producto.precio_mayor}</p>
+
+</div>
+
+
+<div class="acciones">
+
+    <a class="editar" href="editarProducto.html?id=${producto.id}">
+        Editar
+    </a>
+
+</div>
+
+
+`;
+
+            container.appendChild(card)
+
+        })
+
+    }
+
+    
+    const filtrarProductos = () => {
+
+        let texto = inputBuscar.value.toLowerCase()
+
+        let categoria = selectCategoria.value
+
+
+        let productosFiltrados = listaProductos.filter(producto => {
+
+
+            let nombreCoincide = producto.nombre
+                .toLowerCase()
+                .includes(texto)
+
+
+            let categoriaCoincide = categoria === "" || producto.categoria === categoria
+
+
+            return nombreCoincide && categoriaCoincide
+
+
+        })
+
+
+        mostrarProducto(productosFiltrados)
+
+    }
+    inputBuscar.addEventListener('input', filtrarProductos)
+
+    selectCategoria.addEventListener('change', filtrarProductos)
+    const getProductos = () => {
+        fetch(URLProductos, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        })
+            .then(response => response.json())
+            .then(ProductoData => {
+
+                console.log(ProductoData)
+
+                listaProductos = ProductoData.productos
+
+                mostrarProducto(listaProductos)
+
+            })
+    }
+
+    getProductos()
+</script>
+
+</html>

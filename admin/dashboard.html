@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+    <header class="menu reduce-header" id="header">
+        <article class="contenido-nav">
+            <div class="header-container">
+                <div class="logo">
+                    <a href="index.html"><img src="img/logo.png" alt="Logo DaverFrut"></a>
+                </div>
+
+                <nav class="nav-menu" id="nav-menu">
+                    <ul>
+                        <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                        <li><a href="usuarios.html" class="nav-link">Usuarios</a></li>
+                        <li><a href="productos.html" class="nav-link">Productos</a></li>
+                    </ul>
+                </nav>
+
+                <div class="menu-toggle" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </article>
+    </header>
+    <section class="dashboard">
+        <acticle class="container">
+            <div class="cardss">
+                <div class="cardDashboard">
+                    <h2>Total de usuarios</h2>
+                    <p id="totalUsuarios"></p>
+                </div>
+                <div class="cardDashboard">
+                    <h2>Total de productos activos</h2>
+                    <p>1</p>
+                </div>
+                <div class="cardDashboard">
+                    <h2>Total de productos inactivos</h2>
+                    <p>1</p>
+                </div>
+            </div>
+
+        </acticle>
+    </section>
+</body>
+<SCRIpt>
+    let totalUsuarios = document.querySelector('#totalUsuarios');
+    let token = localStorage.getItem('token')
+    if(!token){
+        location.href='login.html'
+    }
+    const  mostrarTotal = (dato) =>{
+                totalUsuarios.textContent=dato
+    }
+    const URLTotoalUser = 'https://verduleria-api-nycc.onrender.com/api/totalUser'
+    const getTotalUser = () =>{
+        fetch(URLTotoalUser,{
+            method:'GET',
+            headers:{
+               'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}` 
+            }
+        })
+        .then(response =>response.json())
+        .then(data => mostrarTotal(data.total))
+    }
+    getTotalUser()
+
+</SCRIpt>
+</html>
