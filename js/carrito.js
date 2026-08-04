@@ -20,22 +20,24 @@ function guardarCarrito() {
   }));
 }
 
-// Agregar producto al carrito (solo si no existe)
-document.querySelectorAll(".agregaCarrito").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const card = btn.closest(".card-producto");
-    const nombre = card.querySelector(".nombre-producto").textContent;
-    const imagen = card.querySelector(".imagen-producto").getAttribute("src");
+// Agregar producto al carrito (delegación de eventos: funciona con cards
+// que se crean dinámicamente después de que carrito.js ya se ejecutó)
+document.addEventListener("click", (e) => {
+  const btn = e.target.closest(".agregaCarrito");
+  if (!btn) return;
 
-    const existente = carrito.find(p => p.nombre === nombre);
-    if (existente) {
-      alert("Este producto ya está en el carrito. Puedes cambiar la cantidad desde el carrito.");
-    } else {
-      carrito.push({ nombre, cantidad: 1, imagen });
-      actualizarCarrito();
-      guardarCarrito();
-    }
-  });
+  const card = btn.closest(".card-producto");
+  const nombre = card.querySelector(".nombre-producto").textContent;
+  const imagen = card.querySelector(".imagen-producto").getAttribute("src");
+
+  const existente = carrito.find(p => p.nombre === nombre);
+  if (existente) {
+    alert("Este producto ya está en el carrito. Puedes cambiar la cantidad desde el carrito.");
+  } else {
+    carrito.push({ nombre, cantidad: 1, imagen });
+    actualizarCarrito();
+    guardarCarrito();
+  }
 });
 
 // Actualizar contenido del carrito
