@@ -110,6 +110,7 @@ function crearCard(producto) {
             </button>
         </div>
         <h3 class="nombre-producto">${producto.nombre}</h3>
+        <h3 class="nombre-producto">Precio:${producto.precio}</h3>
     `;
 
     contenedorCards.appendChild(card);
