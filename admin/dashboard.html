@@ -39,11 +39,11 @@
                 </div>
                 <div class="cardDashboard">
                     <h2>Total de productos activos</h2>
-                    <p>1</p>
+                    <p id="totalActivos"></p>
                 </div>
                 <div class="cardDashboard">
                     <h2>Total de productos inactivos</h2>
-                    <p>1</p>
+                    <p id="totalInactivo"></p>
                 </div>
             </div>
 
@@ -53,25 +53,66 @@
 <SCRIpt>
     let totalUsuarios = document.querySelector('#totalUsuarios');
     let token = localStorage.getItem('token')
-    if(!token){
-        location.href='login.html'
+    if (!token) {
+        location.href = 'login.html'
     }
-    const  mostrarTotal = (dato) =>{
-                totalUsuarios.textContent=dato
+    const mostrarTotal = (dato) => {
+        totalUsuarios.textContent = dato
     }
     const URLTotoalUser = 'https://verduleria-api-nycc.onrender.com/api/totalUser'
-    const getTotalUser = () =>{
-        fetch(URLTotoalUser,{
-            method:'GET',
-            headers:{
-               'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}` 
+    const getTotalUser = () => {
+        fetch(URLTotoalUser, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
             }
         })
-        .then(response =>response.json())
-        .then(data => mostrarTotal(data.total))
+            .then(response => response.json())
+            .then(data => mostrarTotal(data.total))
     }
     getTotalUser()
+    /*Mostrar productos activoss*/
+    let totalActivos = document.querySelector('#totalActivos');
+    const mostrarTotalActivo = (dato) => {
+        totalActivos.textContent = dato
+    }
+    const URLTotoalActivos = 'https://verduleria-api-nycc.onrender.com/api/totalActivosPro'
+
+    const getTotalActivo = () => {
+        fetch(URLTotoalActivos, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        })
+            .then(response => response.json())
+            .then(data => mostrarTotalActivo(data.total))
+    }
+    getTotalActivo()
+    /*Mostrar productos activoss*/
+    let totalInactivos = document.querySelector('#totalInactivo');
+    const mostrarTotalInactivo = (dato) => {
+        totalInactivos.textContent = dato
+    }
+    const URLTotoalInactivo = 'https://verduleria-api-nycc.onrender.com/api/totalInactivosPro'
+
+    const getTotalInactivo = () => {
+        fetch(URLTotoalInactivo, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        })
+            .then(response => response.json())
+            .then(data => mostrarTotalInactivo(data.total))
+    }
+    getTotalInactivo()
+
+
 
 </SCRIpt>
+
 </html>
