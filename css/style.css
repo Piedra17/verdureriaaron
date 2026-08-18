@@ -583,10 +583,11 @@ textarea {
     padding: 30px 20px;
     text-align: center;
     font-size: 0.9rem;
-    background-color: var(--color-fondo);
-    backdrop-filter: blur(6px);
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
 }
+
 
 .logoF {
     width: 200px;
@@ -1284,7 +1285,6 @@ INDEX NOSOTROS
         width: 100%;
         margin: 0 auto;
         text-align: center;
-        /* esto centra el texto */
     }
 
 
@@ -1452,5 +1452,49 @@ INDEX NOSOTROS
     .numerosPaginas{
         padding: 10px 20px;
         font-size: 20px;
+    }
+
+
+    /*//////////////////////
+
+    Productos
+    
+    //////////////////////*/
+
+    .paginacion {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 100px;
+    align-items: center;
+    }
+
+    .btnSiguete {
+    background-color: var(--color-rojo-intenso);
+    border: none;
+    color: #fff;
+    padding: 5px 14px;
+    font-family: var(--parrafo);
+    font-size: 17px;
+    height: 60px;
+    border-radius: 10px;
+    cursor: pointer;
+    }
+
+    .numerosPaginas.activo {
+        background: var(--verde-oliva);
+    }
+
+    .numerosPaginas {
+        background-color: var(--color-rojo-intenso);
+        border: none;
+        color: #fff;
+        padding: 10px 20px;
+        font-family: var(--parrafo);
+        font-size: 15px;
+        margin: 10px;
+        border-radius: 5px;
+        cursor: pointer;
     }
 }
