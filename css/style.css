@@ -79,7 +79,9 @@ MENU
 */
 
 body {
-    background: var(--color-fondo)
+    background: var(--color-fondo);
+    width: 100%;
+    overflow-x: hidden;
         /* url('/contenido/logos/iconos-creemos/agricultura.png') no-repeat center center; */
 }
 
