@@ -1135,7 +1135,7 @@ INDEX NOSOTROS
 
 .SobeNosotrosExpli {
     background-color: var(--color-fondo);
-    height: auto;
+    height: 100%;
 }
 
 .SobeNosotrosExpli .h2 {
@@ -1143,6 +1143,11 @@ INDEX NOSOTROS
     padding: 60px 0 60px;
 }
 
+
+.contenido-hero{
+    height: auto;
+    padding: 0px 0px 200px 0px;
+}
 
 
 
