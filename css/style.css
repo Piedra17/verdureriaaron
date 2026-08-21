@@ -434,7 +434,7 @@ Contacto
     background: linear-gradient(rgba(0, 0, 0, 0.6)), url(../contenido/fotos/form.jpg);
     padding: 60px 0;
     background-size: cover;
-    height: 100dvh;
+    height: 1800;
 }
 
 .contenidoContacto {
@@ -535,8 +535,8 @@ label {
     flex-direction: column;
     background-color: rgba(0, 0, 0, 0);
     backdrop-filter: blur(10px);
-    width: 500px;
-    height: 500px;
+    width: 800px;
+    height: 900px;
     text-align: center;
     margin: 0 auto;
     padding-top: 0px;
@@ -566,6 +566,20 @@ label {
 input,
 textarea {
     color: #fff;
+}
+
+.mapaEncontrarnos {
+    width: 100%;
+    height: auto;
+    max-width: 900px;
+    margin: 30px auto;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.mapaEncontrarnos iframe {
+    display: block;
 }
 
 
