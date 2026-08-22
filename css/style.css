@@ -1517,3 +1517,254 @@ INDEX NOSOTROS
         cursor: pointer;
     }
 }
+
+
+
+/* =========================================================
+   RESPONSIVE PARA CELULARES PEQUEÑOS
+   450px o menos
+   ========================================================= */
+
+@media (max-width: 450px) {
+
+    /* Evita desbordamientos */
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    /* ================= HERO ================= */
+
+    .hero-text {
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .hero-text h1 {
+        width: 100%;
+        font-size: 38px;
+        line-height: 1.1;
+        margin-bottom: 20px;
+    }
+
+    .h1Span {
+        font-size: 38px;
+    }
+
+    .boton-banner {
+        margin-bottom: 90px;
+        padding: 12px 18px;
+        font-size: 17px;
+        max-width: 90%;
+    }
+
+    
+
+    /* ================= TITULOS ================= */
+
+    .h2 {
+        width: 100%;
+        font-size: 32px;
+        text-align: center;
+        padding: 0px 15px;
+    }
+
+    .h3 {
+        font-size: 26px;
+        text-align: center;
+    }
+
+    /* ================= NOSOTROS ================= */
+
+    img.imagenNosotros {
+        width: 90%;
+        max-width: 350px;
+        height: auto;
+        padding-top: 10px;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .contenidoNosotros,
+    .contenido-nosotros {
+        width: 100%;
+        max-width: 100%;
+        flex-direction: column;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+
+    .texto-sobre .h1 {
+        width: 100%;
+        padding: 100px 15px 0;
+        font-size: 42px;
+        text-align: center;
+        line-height: 1.1;
+    }
+
+    .texto-sobre {
+        width: 100%;
+        text-align: center;
+    }
+
+    .parrafo-banner,
+    p.parrafoBanner {
+        width: 100%;
+        max-width: 100%;
+        padding: 15px;
+        font-size: 16px;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .boton-ver {
+        margin-top: 30px;
+        padding: 12px 25px;
+    }
+
+    /* ================= CREEMOS ================= */
+
+    .titulo-creemos {
+        width: 100%;
+        font-size: 34px;
+        padding: 15px;
+        text-align: center;
+    }
+
+    .parrafo-creemos {
+        width: 100%;
+        font-size: 17px;
+        padding: 15px;
+        text-align: center;
+    }
+
+    .cards-creemos {
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+        gap: 1.5rem;
+        margin: 0 auto;
+    }
+
+    /* ================= PRODUCTOS ================= */
+
+    .productosCards {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 100% auto;
+        max-width: 350px;
+        height: 600px;
+        min-height: 400px;
+    }
+
+    .botonProductos{
+        padding: 18px 40px;
+    }
+
+    /* ================= FORMULARIO ================= */
+
+    input,
+    textarea {
+        width: 100%;
+        max-width: 350px;
+        margin: 10px auto;
+        display: block;
+    }
+
+    .fondoFrom {
+        width: 90%;
+        max-width: 380px;
+        margin: 0 auto;
+    }
+
+    form {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 15px;
+    }
+
+    .botonFrom {
+        width: 200px;
+        max-width: 90%;
+        margin: 0 auto;
+    }
+
+    /* ================= MAPA ================= */
+
+    .map {
+        width: 95%;
+        max-width: 100%;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+
+    .map iframe {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* ================= IMAGENES ================= */
+
+    .imagenesNosotros {
+        display: none;
+    }
+
+    /* ================= PAGINACION ================= */
+
+    .paginacion {
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 5px;
+        padding-top: 50px;
+        margin: 0 auto;
+    }
+
+    .btnSiguete {
+        padding: 5px 12px;
+        font-size: 15px;
+        height: 50px;
+    }
+
+    .numerosPaginas {
+        padding: 8px 13px;
+        font-size: 14px;
+        margin: 3px;
+    }
+
+    /* ================= INFORMACION ================= */
+
+    .informacionNosotros {
+        width: 100%;
+        max-width: 100%;
+        gap: 10px;
+        padding: 0 15px;
+    }
+
+    .contenido-hero {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 15px;
+    }
+
+    .btnSiguete {
+        max-width: 100%;
+    }
+
+}
+
